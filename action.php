@@ -1,8 +1,8 @@
 <?php
 /**
- *  @author: Myron Turner
- *  @turnermm03@shaw.ca
- *  @ adds characters to the Special Chars picker  
+ * @author: Myron Turner <turnermm03@shaw.ca>  
+ * @license GPLv2 (http://www.gnu.org/licenses/gpl2.html)
+ * @adds and/or deletes characters in the Special Chars picker  
  */
 
 // must be run within Dokuwiki
