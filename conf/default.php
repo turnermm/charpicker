@@ -1,4 +1,4 @@
 <?php
 
-$conf['chars'] = '!!not set!!';
-$conf['del_chars'] = '!!not set!!';
+$conf['chars'] = '';
+$conf['del_chars'] = '';
