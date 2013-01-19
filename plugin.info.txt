@@ -4,4 +4,4 @@ email  turnermm02@shaw.ca
 date  2013-01-19
 name  charpicker
 desc  Adds characters to special chars picker
-url  http://mturner.org/
+url  https://www.dokuwiki.org/plugin:charpicker
