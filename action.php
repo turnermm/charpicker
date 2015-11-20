@@ -17,6 +17,8 @@ class action_plugin_charpicker extends DokuWiki_Action_Plugin {
 
      
      public function check_toolbar( &$event, $param) {
+       global $lang;
+       $title = $lang['qb_chars'];
        $test= array('À','à','Á','á','Â','â','Ã','ã','Ä','ä','A','a','A','a','Å','å','A','a','A','a','Æ','æ','C','c','Ç','ç','C','c','Ò','ò','Ó','ó','Ô','¢','£','¤','¥','€','¦','§','µ','¶','†','‡','·','•','º');
                     
          $add_chars = $this->getConf('chars');  
@@ -28,9 +30,14 @@ class action_plugin_charpicker extends DokuWiki_Action_Plugin {
          
         for($i=0;$i<count($event->data); $i++) {         
             if($event->data[$i]['type']=='picker') { 
-               if(preg_match("/Special\s+chars/i", $event->data[$i]['title'])   
-                               || count(array_intersect($test, $event->data[$i]['list'])) > 10)  {  // insurance in case title changes
-                    $event->data[$i]['list'] = array_diff($event->data[$i]['list'],$del_chars);
+                if(preg_match("/$title/i", $event->data[$i]['title'])    
+                               || count(array_intersect($test, $event->data[$i]['list'])) > 5)  {  // insurance against title failure
+                     if($this->getConf('del_all')) {
+                         $event->data[$i]['list'] =  array();
+                      }   
+                     else {
+                         array_diff($event->data[$i]['list'],$del_chars);
+                     }   
                     $event->data[$i]['list'] = array_merge($event->data[$i]['list'],$add_chars);           
                     break;
                    }
