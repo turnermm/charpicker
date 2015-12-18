@@ -36,7 +36,7 @@ class action_plugin_charpicker extends DokuWiki_Action_Plugin {
                          $event->data[$i]['list'] =  array();
                       }   
                      else {
-                         array_diff($event->data[$i]['list'],$del_chars);
+                       $event->data[$i]['list'] = array_diff($event->data[$i]['list'],$del_chars);
                      }   
                     $event->data[$i]['list'] = array_merge($event->data[$i]['list'],$add_chars);           
                     break;
