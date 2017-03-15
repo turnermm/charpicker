@@ -1,7 +1,7 @@
 base  charpicker
 author  Myron Turner
 email  turnermm02@shaw.ca
-date  2015-12-21
+date  2015-10-16
 name  charpicker
 desc  Adds characters to special chars picker
 url  https://www.dokuwiki.org/plugin:charpicker
