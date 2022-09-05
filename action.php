@@ -22,16 +22,21 @@ class action_plugin_charpicker extends DokuWiki_Action_Plugin {
        $test= array('À','à','Á','á','Â','â','Ã','ã','Ä','ä','A','a','A','a','Å','å','A','a','A','a','Æ','æ','C','c','Ç','ç','C','c','Ò','ò','Ó','ó','Ô','¢','£','¤','¥','€','¦','§','µ','¶','†','‡','·','•','º');
                     
          $add_chars = $this->getConf('chars');  
+         if(!$add_chars) {
+             $add_chars = '‰';
+         }
          $add_chars = str_replace(' ',"",$add_chars);
          $add_chars = explode(',',$add_chars); 
          $del_chars = $this->getConf('del_chars');
+         if(!$del_chars) {
+             $del_chars = '‰';
+         }
          $del_chars = str_replace(' ',"",$del_chars);
          $del_chars = explode(',',$del_chars); 
          
         for($i=0;$i<count($event->data); $i++) {         
             if($event->data[$i]['type']=='picker') { 
-                if(preg_match("/$title/i", $event->data[$i]['title'])    
-                               || count(array_intersect($test, $event->data[$i]['list'])) > 5)  {  // insurance against title failure
+                if(preg_match("/$title/i", $event->data[$i]['title'])){               
                      if($this->getConf('del_all')) {
                          $event->data[$i]['list'] =  array();
                       }   
